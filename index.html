@@ -52,7 +52,7 @@
         mvPosition.y += 10.0*sin(time*0.5+mvPosition.x/25.0)*effectAmount;
         mvPosition.x -= 10.0*cos(time*0.5+mvPosition.y/25.0)*effectAmount;
         vec4 p = projectionMatrix * mvPosition;
-        vUv = uv + vec2(0.0, mod(floor(DRM)/256.0, 1.0));
+        vUv = uv + vec2(0.0, mod(floor(DRM)/16.0, 1.0));
         vZ = p.z;
         gl_Position = p;
       }

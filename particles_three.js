@@ -24,8 +24,8 @@ window.onload = function() {
   light.position.y = 100;
   scene.add(light);
 
-  var fsz = 8;
-  var tsz = 256;
+  var fsz = 16;
+  var tsz = 16;
   var c = document.createElement('canvas');
   c.width = c.height = fsz*tsz;
   var ctx = c.getContext('2d');
@@ -46,7 +46,7 @@ window.onload = function() {
   mat.transparent = true;
 
   var geo = new THREE.Geometry();
-  var str = BOOK.substring(0,20000);
+  var str = BOOK;
 
   var j=0, ln=0;
 
