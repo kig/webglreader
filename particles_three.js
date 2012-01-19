@@ -138,20 +138,19 @@ window.onload = function() {
 
   var gui = new dat.GUI();
   var control = {
-    effectAmount: 0,
+    ACID: 0,
     DRM: 0,
     SOPA: 0
   };
-  gui.add(control, 'effectAmount', 0, 100);
+  gui.add(control, 'ACID', 0, 100);
   gui.add(control, 'DRM', 0, 100);
   gui.add(control, 'SOPA', 0, 100);
   
   var animate = function(t) {
     uniforms.time.value += 0.05;
-    uniforms.effectAmount.value = control.effectAmount/100;
+    uniforms.effectAmount.value = control.ACID/100;
     uniforms.DRM.value = control.DRM;
     uniforms.SOPA.value = control.SOPA/100;
-//    top.rotation.y -= 0.01;
     top.position.y += 0.03;
     renderer.render(scene, camera);
     requestAnimationFrame(animate, renderer.domElement);
