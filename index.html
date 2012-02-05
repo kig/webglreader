@@ -5,10 +5,10 @@
       varying float vZ;
       uniform float time;
       uniform float effectAmount;
-      uniform float SOPA;
+      uniform float ACTA;
       uniform float DRM;
       varying vec2 vUv;
-      varying float vSOPA;
+      varying float vACTA;
 
       vec3 rotate(float angle, vec3 v) {
         vec3 u = vec3(
@@ -37,9 +37,9 @@
 
       void main() {
         float idx = floor(position.y/1.1)*80.0 + floor(position.x/1.1);
-        vSOPA = 0.0;
-        if (SOPA * 25.0 > 0.01+0.999*mod(idx*97.0, 25.0)) {
-          vSOPA = 1.0;
+        vACTA = 0.0;
+        if (ACTA * 25.0 > 0.01+0.999*mod(idx*97.0, 25.0)) {
+          vACTA = 1.0;
         }
         vec3 corner = vec3(floor(position.x/1.1)*1.1, floor(position.y/1.1)*1.1, 0.0);
         vec3 mid = corner + vec3(0.5, 0.5, 0.0);
@@ -62,7 +62,7 @@
       varying vec2 vUv;
       uniform float time;
       uniform float effectAmount;
-      varying float vSOPA;
+      varying float vACTA;
       uniform vec2 size;
       uniform sampler2D map;
       void main() {
@@ -73,7 +73,7 @@
                  -d.x*sin(a) + d.y*cos(a));
         vec2 rg = vec2(0.0)+abs(d)/(0.5*size);
         float b = abs(vZ) / 160.0;
-        diffuse.a = mix(diffuse.a, 1.0, vSOPA);
+        diffuse.a = mix(diffuse.a, 1.0, vACTA);
         gl_FragColor = mix(diffuse, vec4(rg,b,diffuse.a), effectAmount);
       }
     </script>

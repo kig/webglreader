@@ -88,7 +88,7 @@ window.onload = function() {
     map : { type: "t", value: 1, texture: tex },
     effectAmount : { type: "f", value: 0.0 },
     DRM : { type: "f", value: 0.0 },
-    SOPA : { type: "f", value: 0.0 }
+    ACTA : { type: "f", value: 0.0 }
   };
   
   var shaderMaterial = new THREE.ShaderMaterial({
@@ -138,19 +138,19 @@ window.onload = function() {
 
   var gui = new dat.GUI();
   var control = {
-    ACID: 0,
-    DRM: 0,
-    SOPA: 0
+    Animation: 0,
+    Jumble: 0,
+    Censor: 0
   };
-  gui.add(control, 'ACID', 0, 100);
-  gui.add(control, 'DRM', 0, 100);
-  gui.add(control, 'SOPA', 0, 100);
+  gui.add(control, 'Animation', 0, 100);
+  gui.add(control, 'Jumble', 0, 100);
+  gui.add(control, 'Censor', 0, 100);
   
   var animate = function(t) {
     uniforms.time.value += 0.05;
-    uniforms.effectAmount.value = control.ACID/100;
-    uniforms.DRM.value = control.DRM;
-    uniforms.SOPA.value = control.SOPA/100;
+    uniforms.effectAmount.value = control.Animation/100;
+    uniforms.DRM.value = control.Jumble;
+    uniforms.ACTA.value = control.Censor/100;
     top.position.y += 0.03;
     renderer.render(scene, camera);
     requestAnimationFrame(animate, renderer.domElement);
